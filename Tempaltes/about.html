@@ -1,0 +1,131 @@
+<!-- Templates/about.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            height: 100vh;
+            background: linear-gradient(to bottom, rgb(0, 0, 0, 0.4), rgb(0, 0, 0, 0.4)),url('/static/kvalifik-3TiNowmZluA-unsplash.jpg');
+            background-size: cover;
+            margin: 0;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            font-size: 17px;
+        }
+
+        .navbar .nav-link {
+            margin-left: 41px;
+            color: white;
+        }
+
+        .navbar .nav-link:hover {
+            color: #0069d9;
+        }
+
+        .navbar .navbar-brand {
+            text-decoration: none;
+            color: white;
+        }
+
+        .container h1, p {
+            color: white;
+        }
+
+        .container h1 {
+            padding-top: 60px;
+        }
+
+        .container p {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <nav class="navbar nav-pills bg-dark border-body navbar-expand-lg" data-bs-theme="dark">
+        <a class="navbar-brand" href="#">BotShield</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ url_for('about') }}">About</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="/">Profile</a>
+                </li> -->
+                <li class="nav-item">
+                    <form action="{{ url_for('logout') }}" method="post">
+                        <button type="submit" class="nav-link btn btn-link">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+
+        <h1>About Us</h1>
+            <p>
+                Welcome to our website! We are dedicated to providing you with a secure and enjoyable online experience.
+                Our mission is to detect and prevent malicious activities, ensuring a safe environment for users.
+            </p>
+        <br>
+        <br>
+        <div class="row">
+            <!-- Bhavika Talele -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center">
+                    <img src="/static/profile-pic.png" class="card-img-top" alt="Bhavika Talele">
+                    <div class="card-body">
+                        <h5 class="card-title">Bhavika Talele</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kuntal Rane -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center">
+                    <img src="/static/profile photo.png" class="card-img-top" alt="Kuntal Rane">
+                    <div class="card-body">
+                        <h5 class="card-title">Kuntal Rane</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Abhishekh Pohare -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center">
+                    <img src="/static/profile-pic (2).png" class="card-img-top" alt="Abhishekh Pohare">
+                    <div class="card-body">
+                        <h5 class="card-title">Abhishekh Pohare</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

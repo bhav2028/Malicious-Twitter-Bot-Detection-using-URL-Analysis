@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malicious Bot Detection - Results</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            height: 100vh;
+            background-size: cover;
+            margin: 0;
+        }
+
+        .navbar {
+            position: fixed; /* Make the navbar sticky */
+            top: 0;
+            width: 100%;
+            font-size: 17px;
+        }
+
+        .navbar .nav-link
+        {
+            margin-left: 41px;
+            color: white;
+        }
+
+        .navbar .nav-link:hover {
+            color: #0069d9;
+        }
+
+        .navbar .navbar-brand {
+            text-decoration: none;
+            color: white;
+        }
+
+        h1 {
+            margin-left: 30px;
+            padding-top: 50px;
+        }
+
+        p {
+            margin-left: 30px;
+            padding-top: 20px;
+            font-size: 20px;
+        }
+
+        .image-container {
+            background: url('/static/resultsbg.jpg');
+            background-size: cover;
+            width: 100%;
+            height: 285px;
+        }
+
+        .image-container h1 {
+            text-align: center;
+            padding-top: 120px;
+            padding-left: 50px;
+            color: white;
+        }
+
+        .conatiner {
+            padding-top: 3rem;
+        }
+
+        .bttn a {
+            margin-left: 228px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar nav-pills bg-dark border-bottom border-body navbar-expand-lg" data-bs-theme="dark">
+        <a class="navbar-brand" href="#">BotShield</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('about') }}">About</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="/">Profile</a>
+                </li> -->
+                <li class="nav-item">
+                    <form action="{{ url_for('logout') }}" method="post">
+                        <button type="submit" class="nav-link btn btn-link">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="image-container">
+        <h1>Analysis Results</h1>
+    </div>
+    <div class="container mt-4 overlay-text">
+
+        <!-- result.html -->
+        <p><strong>Tweet Link:</strong> {{ tweet_link }}</p>
+        <p><strong>Post URL:</strong> {{ post_url }}</p>
+        {% if bot_predict_account == 1 %}
+            <p><strong>Account Bot Prediction:</strong> Malicious</p>
+        {% else %}
+            <p><strong>Account Bot Prediction:</strong> Not Malicious</p>
+        {% endif %}
+        <p><strong>Malicious URL:</strong> {{ malicious_url_post }}</p>
+
+        
+    </div>
+
+    <div class="bttn">
+        <a href="{{ url_for('home') }}" class="btn btn-primary">Go Back</a>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
